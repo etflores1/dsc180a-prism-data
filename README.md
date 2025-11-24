@@ -120,7 +120,7 @@ Using:
 
 ---
 
-## **📝 Key Questions Addressed**
+## **Key Questions Addressed**
 
 ### **What counts as income?**
 
