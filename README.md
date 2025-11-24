@@ -21,7 +21,6 @@ The focus of this project is cleaning financial transaction data, engineering fe
 05_tiny_transformer_fusion_classifier.ipynb
 06_income_eda.ipynb
 README.md
-read.me
 .ipynb_checkpoints/
 ```
 
