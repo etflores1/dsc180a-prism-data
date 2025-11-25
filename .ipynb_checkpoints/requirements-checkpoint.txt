@@ -1,0 +1,15 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+scipy
+tqdm
+transformers
+torch
+tensorflow
+sentencepiece
+accelerate
+joblib
+pyarrow
+fastparquet
