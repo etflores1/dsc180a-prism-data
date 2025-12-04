@@ -9,8 +9,10 @@ This repository contains the Quarter 1 work for **DSC 180A: Prism Data**. The pr
 eda/
     overview_eda.ipynb
 
+
 income_prediction/
     income_eda.ipynb
+
 
 preprocessing/
     feature_engineering.ipynb
@@ -24,8 +26,9 @@ models/
     distilbert_classifier.ipynb
     huggingface_transformers.ipynb
 
-README.md  
-.gitignore  
+
+README.md
+.gitignore
 
 ---
 
