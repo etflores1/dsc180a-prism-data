@@ -92,8 +92,6 @@ Recurring cycles (weekly, biweekly, monthly, every *N* days) identified using:
 - 1318 regular income patterns detected  
 - 1046 consumers show consistent cycles  
 
----
-
 ## Key Questions
 
 ### What counts as income?
@@ -106,6 +104,7 @@ No. Many valid income sources (benefits, investments) are irregular.
 By clustering similar inflows and analyzing gaps between payment dates.
 
 ---
+4. Reproducibility
 
 ## How to Run
 
