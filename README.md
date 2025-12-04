@@ -104,7 +104,7 @@ No. Many valid income sources (benefits, investments) are irregular.
 By clustering similar inflows and analyzing gaps between payment dates.
 
 ---
-4. Reproducibility
+## 4. Reproducibility
 
 ## How to Run
 
