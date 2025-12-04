@@ -5,6 +5,8 @@ This repository contains the Quarter 1 work for **DSC 180A: Prism Data**. The pr
 ---
 
 ## Repository Structure
+
+```
 eda/
     overview_eda.ipynb
 
@@ -25,6 +27,7 @@ models/
 
 README.md
 .gitignore
+```
 ---
 
 ## 1. Data Cleaning and Preprocessing
