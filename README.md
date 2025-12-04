@@ -1,157 +1,121 @@
-# **dsc180a-prism-data**
+# dsc180a-prism-data
 
-This repository contains all of our work for the **DSC 180A: Prism Data Project (Quarter 1)**.
-The focus of this project is cleaning financial transaction data, engineering features, building multiple classification models, and analyzing consumer income patterns.
-
----
-
-## **Repository Structure**
-
-```
-00_eda.ipynb
-01_memos.ipynb
-01_memos_func_renamed.ipynb
-02_baseline_models.ipynb
-03_preprocessing.ipynb
-03.1_preprocessing_revisited_with_education_fix.ipynb
-04_hugging_face_model.ipynb
-05_DistilBERT.ipynb
-05_HistGradientBoostingClassifier.ipynb
-05_more_adv_models.ipynb
-05_tiny_transformer_fusion_classifier.ipynb
-06_income_eda.ipynb
-README.md
-.ipynb_checkpoints/
-```
+This repository contains the Quarter 1 work for **DSC 180A: Prism Data**. The project focuses on cleaning consumer-transaction data, engineering memo and financial features, building multiple classification models, and analyzing income patterns.
 
 ---
 
-## **1. Data Cleaning & Preprocessing**
+## Repository Structure
 
-Performed in **03_preprocessing.ipynb** and the updated version **03.1_preprocessing_revisited_with_education_fix.ipynb**.
+eda/
+    overview_eda.ipynb
 
-Steps include:
+income_prediction/
+    income_eda.ipynb
 
-* Parsing and cleaning transaction memos
-* Fixing dates and numeric fields
-* Handling rare categories
-* Building a reusable `DateAmountFeaturizer` (day of week, DOM, hour, whole-dollar, binned amounts)
-* Full preprocessing pipeline for modeling
+preprocessing/
+    feature_engineering.ipynb
+    memos_parsed.ipynb
 
----
+models/
+    baseline_models.ipynb
+    hist_gradient_boosting_classifier.ipynb
+    neural_network_experiments.ipynb
+    tiny_transformer_classifier.ipynb
+    distilbert_classifier.ipynb
+    huggingface_transformers.ipynb
 
-## **2. Models Implemented**
-
-### **Baseline Models**
-
-* Logistic Regression
-* Linear SVC
-* Complement Naive Bayes
-
-### **Tree-Based Model**
-
-* **HistGradientBoostingClassifier**
-
-  * TF-IDF → SVD → Boosted Trees
-  * Good speed and performance
-
-### **Neural + Transformer Models**
-
-* Tiny Transformer Fusion Model
-* Feed-Forward MLP
-* **DistilBERT Embeddings + Logistic Regression**
-* **BERT / RoBERTa (HuggingFace transformers)**
-
-Model notebooks include accuracy, macro-F1, latency, classification reports, and confusion matrices.
-
-Relevant notebooks:
-
-* `02_baseline_models.ipynb`
-* `04_hugging_face_model.ipynb`
-* `05_DistilBERT.ipynb`
-* `05_more_adv_models.ipynb`
-* `05_tiny_transformer_fusion_classifier.ipynb`
-* `05_HistGradientBoostingClassifier.ipynb`
+README.md  
+.gitignore  
 
 ---
 
-## **3. Income EDA & Regularity Detection**
+## 1. Data Cleaning and Preprocessing
 
-Performed in **06_income_eda.ipynb**.
+All preprocessing logic is located in **preprocessing/**.
 
 Includes:
+- Parsing and standardizing transaction memos  
+- Cleaning dates, numeric fields, and rare categories  
+- Engineering temporal and behavioral features  
+- Constructing reusable featurizers  
+- Producing model-ready datasets  
 
-### **Consumer-Level Statistics**
+---
 
-* Transactions per consumer
-* Total inflow dollars
-* Average & std inflow amount
-* Active days (first → last transaction)
-* Percentile-based income buckets
+## 2. Classification Models
 
-### **Major Income Sources**
+All model development appears in **models/**.
 
-Primary income categories identified:
+### Baseline Models
+- Logistic Regression  
+- Linear SVC  
+- Complement Naive Bayes  
 
-* PAYCHECK
-* INVESTMENT_INCOME
-* OTHER_BENEFITS
-* UNEMPLOYMENT_BENEFITS
+### Tree-Based Model
+- **HistGradientBoostingClassifier**  
+  - TF-IDF → SVD memo embeddings paired with boosted trees  
 
-### **Regular Income Detection**
+### Neural and Transformer Models
+- Feed-Forward MLP  
+- Tiny Transformer classifier  
+- DistilBERT embeddings + linear classifier  
+- BERT / RoBERTa via HuggingFace Transformers  
 
-A custom algorithm detects:
+Each notebook includes accuracy, macro-F1, confusion matrices, and latency comparisons.
 
-* Weekly
-* Biweekly
-* Monthly
-* “Every *N* Days” patterns
+---
 
-Using:
+## 3. Income EDA and Regularity Detection
 
-* Amount clustering
-* Interval stability
-* Thresholds for tolerance
+Implemented in **income_prediction/income_eda.ipynb**.
+
+### Consumer-Level Statistics
+- Transaction counts  
+- Inflow totals and variability  
+- Active transaction span  
+- Income grouping via percentiles  
+
+### Major Income Sources
+- PAYCHECK  
+- INVESTMENT_INCOME  
+- OTHER_BENEFITS  
+- UNEMPLOYMENT_BENEFITS  
+
+### Regular Income Detection
+Recurring cycles (weekly, biweekly, monthly, every *N* days) identified using:
+- Amount clustering  
+- Interval analysis  
+- Stability thresholds  
 
 **Results**
-
-* 1318 regular income patterns found
-* 1046 unique consumers with regular income cycles
-
----
-
-## **Key Questions Addressed**
-
-### **What counts as income?**
-
-PAYCHECK, BENEFITS, and INVESTMENT_INCOME were treated as true income.
-Transfers, loans, refunds, and cash deposits were **not** treated as income.
-
-### **Does regularity matter for all income?**
-
-No — benefits and investment income are often irregular but still count as income.
-
-### **How do we detect “regular” paychecks?**
-
-Using:
-
-* Grouped amounts (± tolerance)
-* Differences between payment dates
-* Classifying cycles (weekly / biweekly / monthly)
+- 1318 regular income patterns detected  
+- 1046 consumers show consistent cycles  
 
 ---
 
-## **How to Run This Project**
+## Key Questions
 
-1. Run `03_preprocessing.ipynb` to build the cleaned dataframe.
-2. Run any of the modeling notebooks to train models.
-3. Use `06_income_eda.ipynb` for income and consumer-level analysis.
+### What counts as income?
+PAYCHECK, BENEFITS, and INVESTMENT_INCOME; excludes transfers, refunds, loans, and cash deposits.
+
+### Must income be regular?
+No. Many valid income sources (benefits, investments) are irregular.
+
+### How is regularity detected?
+By clustering similar inflows and analyzing gaps between payment dates.
 
 ---
 
-## **Notes**
+## How to Run
 
-* All work was run on UCSD Datahub.
-* Transformer models may require additional RAM/time.
-* HistGradientBoostingClassifier is the best non-deep-learning model for speed vs accuracy.
+1. Use **feature_engineering.ipynb** to generate cleaned datasets and features.  
+2. Run notebooks in **models/** to train and evaluate specific classifiers.  
+3. Use **income_prediction/income_eda.ipynb** for income-pattern analysis.
 
+---
+
+## Notes
+
+- All work executed on UCSD Datahub.  
+- Transformer models require more memory and runtime.  
+- HistGradientBoostingClassifier provides the strongest classical baseline.
