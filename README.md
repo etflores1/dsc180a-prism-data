@@ -50,8 +50,8 @@ All model development appears in **models/**.
 
 ### Baseline Models
 - Logistic Regression  
-- Linear SVC  
-- Complement Naive Bayes  
+- Random Forest Classifier
+- XGBoost Classifier  
 
 ### Tree-Based Model
 - **HistGradientBoostingClassifier**  
@@ -60,8 +60,8 @@ All model development appears in **models/**.
 ### Neural and Transformer Models
 - Feed-Forward MLP  
 - Tiny Transformer classifier  
-- DistilBERT embeddings + linear classifier  
-- BERT / RoBERTa via HuggingFace Transformers  
+- DistilBERT (Fine-tuned for sequence classification)
+- RoBERTa (Fine-tuned)
 
 Each notebook includes accuracy, macro-F1, confusion matrices, and latency comparisons.
 
