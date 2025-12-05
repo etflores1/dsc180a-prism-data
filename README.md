@@ -27,6 +27,7 @@ models/
 
 README.md
 .gitignore
+requirements.txt
 ```
 ---
 
@@ -106,19 +107,16 @@ By clustering similar inflows and analyzing gaps between payment dates.
 ---
 ## 4. Reproducibility
 
+### Environment Setup
+* `requirements.txt` includes CUDA-pinned PyTorch wheels; these install only on supported NVIDIA/CUDA systems. CPU-only machines (including Apple Silicon) will automatically receive CPU wheels.
+* Conda users may create an environment first, then run: `python -m pip install -r requirements.txt`
+* Quick one-liner (any environment): `python -m pip install -r requirements.txt`
+
 ## How to Run
 
 1. Use **feature_engineering.ipynb** to generate cleaned datasets and features.  
 2. Run notebooks in **models/** to train and evaluate specific classifiers.  
 3. Use **income_prediction/income_eda.ipynb** for income-pattern analysis.
-
-### Environment Setup
-* `requirements.txt` includes CUDA-pinned PyTorch wheels; they install only on supported NVIDIA/CUDA setups. On CPU-only or Apple Silicon, pip will pull the CPU wheels instead.
-* **PyTorch note**: `requirements.txt` includes CUDA-pinned PyTorch wheels; they install only on supported NVIDIA/CUDA setups. On CPU-only machines (including Apple Silicon), `pip` will install CPU wheels instead.
-* **Conda users**: create a conda env (optional), then run `python -m pip install -r requirements.txt` inside it.
-* **Quick one-liner**: If you already have an activated env, run:
-`python -m pip install -r requirements.txt`
-
 ---
 
 ## Notes
