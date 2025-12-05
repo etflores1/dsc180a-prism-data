@@ -1,7 +1,6 @@
 data/
 *.parquet
 *.pqt
-requirements.txt
 results/
 results_roberta/
 logs/

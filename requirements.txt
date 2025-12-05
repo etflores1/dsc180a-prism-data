@@ -1,0 +1,31 @@
+# --- Core ML stack ---
+torch==2.3.1+cu121
+torchvision==0.18.1+cu121
+torchaudio==2.3.1+cu121
+--extra-index-url https://download.pytorch.org/whl/cu121
+
+# --- Data & utils ---
+pandas
+numpy
+scikit-learn
+scipy
+pyarrow
+fastparquet
+tqdm
+jupyterlab
+ipykernel
+ipywidgets
+rich
+requests
+matplotlib
+seaborn
+plotly
+
+# --- NLP / HF ---
+transformers
+datasets
+accelerate
+evaluate
+sentencepiece
+tokenizers
+huggingface-hub
