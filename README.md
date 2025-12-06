@@ -123,4 +123,4 @@ By clustering similar inflows and analyzing gaps between payment dates.
 
 - All work executed on UCSD Datahub and local laptop.  
 - Transformer models require more memory and runtime.  
-- HistGradientBoostingClassifier provides the strongest classical baseline.
+- Logistic Regression provides the strongest classical baseline.
